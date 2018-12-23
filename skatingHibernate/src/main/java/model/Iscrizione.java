@@ -6,19 +6,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "iscrizioni")
-public class Iscrizioni {
+public class Iscrizione {
 	
 	private String asd;
-	private String numero;
+	private int numero;
 	private String categoria;
 	private String specialita;
 	private String disciplina;
 	private String gruppo;
+	private int n;
 	private String classe;
 	private String ballerini;
 	
-	public Iscrizioni(String asd, String numero, String categoria, String specialita, String disciplina, String gruppo,
-			String classe, String ballerini) {
+	public Iscrizione() {
+		super();
+	}
+
+	public Iscrizione(String asd, int numero, String categoria, String specialita, String disciplina, String gruppo,
+			int n, String classe, String ballerini) {
 		super();
 		this.asd = asd;
 		this.numero = numero;
@@ -26,6 +31,7 @@ public class Iscrizioni {
 		this.specialita = specialita;
 		this.disciplina = disciplina;
 		this.gruppo = gruppo;
+		this.n = n;
 		this.classe = classe;
 		this.ballerini = ballerini;
 	}
@@ -39,11 +45,11 @@ public class Iscrizioni {
 	}
 
 	@Id
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
@@ -93,6 +99,21 @@ public class Iscrizioni {
 
 	public void setBallerini(String ballerini) {
 		this.ballerini = ballerini;
+	}
+
+	public int getN() {
+		return n;
+	}
+
+	public void setN(int n) {
+		this.n = n;
+	}
+
+	@Override
+	public String toString() {
+		return "Iscrizioni [asd=" + asd + ", numero=" + numero + ", categoria=" + categoria + ", specialita="
+				+ specialita + ", disciplina=" + disciplina + ", gruppo=" + gruppo + ", n=" + n + ", classe=" + classe
+				+ ", ballerini=" + ballerini + "]";
 	}
 
 }
