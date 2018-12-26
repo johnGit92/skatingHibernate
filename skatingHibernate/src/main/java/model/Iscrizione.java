@@ -1,6 +1,8 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,20 +12,20 @@ public class Iscrizione {
 	
 	private String asd;
 	private int numero;
-	private String categoria;
-	private String specialita;
-	private String disciplina;
-	private String gruppo;
+	private Categoria categoria;
+	private Specialita specialita;
+	private Disciplina disciplina;
+	private Gruppo gruppo;
 	private int n;
-	private String classe;
+	private Classe classe;
 	private String ballerini;
 	
 	public Iscrizione() {
 		super();
 	}
 
-	public Iscrizione(String asd, int numero, String categoria, String specialita, String disciplina, String gruppo,
-			int n, String classe, String ballerini) {
+	public Iscrizione(String asd, int numero, Categoria categoria, Specialita specialita, Disciplina disciplina, Gruppo gruppo,
+			int n, Classe classe, String ballerini) {
 		super();
 		this.asd = asd;
 		this.numero = numero;
@@ -53,43 +55,48 @@ public class Iscrizione {
 		this.numero = numero;
 	}
 
-	public String getCategoria() {
+	@Enumerated(EnumType.STRING)
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
-	public String getSpecialita() {
+	@Enumerated(EnumType.STRING)
+	public Specialita getSpecialita() {
 		return specialita;
 	}
 
-	public void setSpecialita(String specialita) {
+	public void setSpecialita(Specialita specialita) {
 		this.specialita = specialita;
 	}
 
-	public String getDisciplina() {
+	@Enumerated(EnumType.STRING)
+	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 
-	public void setDisciplina(String disciplina) {
+	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
 
-	public String getGruppo() {
+	@Enumerated(EnumType.STRING)
+	public Gruppo getGruppo() {
 		return gruppo;
 	}
 
-	public void setGruppo(String gruppo) {
+	public void setGruppo(Gruppo gruppo) {
 		this.gruppo = gruppo;
 	}
 
-	public String getClasse() {
+	@Enumerated(EnumType.STRING)
+	public Classe getClasse() {
 		return classe;
 	}
 
-	public void setClasse(String classe) {
+	public void setClasse(Classe classe) {
 		this.classe = classe;
 	}
 
