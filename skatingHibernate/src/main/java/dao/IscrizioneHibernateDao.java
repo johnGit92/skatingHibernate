@@ -1,11 +1,18 @@
 package dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import model.Categoria;
+import model.Classe;
+import model.Competizione;
+import model.Disciplina;
+import model.Gruppo;
 import model.Iscrizione;
+import model.Specialita;
 
 public class IscrizioneHibernateDao implements IscrizioneDao{
 	
@@ -81,6 +88,29 @@ public class IscrizioneHibernateDao implements IscrizioneDao{
 			session.close();
 		}
 		return list;
+	}
+
+	@Override
+	public List<Competizione> getCompetizioni() {
+		Session session=HibernateUtil.getSession();
+		List<Object[]> list;
+		String queryString="select categoria,classe,disciplina,specialita,gruppo from Iscrizione group by categoria,classe,disciplina,specialita,gruppo";
+		try {
+			session.beginTransaction();
+			Query<Object[]> query=session.createQuery(queryString);
+			list=query.list();
+			session.getTransaction().commit();
+		}finally {
+			session.close();
+		}
+		
+		List<Competizione> competizioni=new LinkedList<Competizione>();
+		for(Object[] tuple: list) {
+			competizioni.add(new Competizione((Categoria)tuple[0], (Specialita)tuple[3], 
+					(Disciplina)tuple[2], (Classe)tuple[1], (Gruppo)tuple[4]));
+		}
+		
+		return competizioni;
 	}
 
 }

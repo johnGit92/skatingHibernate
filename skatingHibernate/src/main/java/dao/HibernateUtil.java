@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import model.Competizione;
 import model.Iscrizione;
 
 public class HibernateUtil {
@@ -12,6 +13,7 @@ public class HibernateUtil {
 	private HibernateUtil(){
 		Configuration config = new Configuration().configure("hibernate.cfg.xml");
 		config.addAnnotatedClass(Iscrizione.class);
+		config.addAnnotatedClass(Competizione.class);
 		factory = config.buildSessionFactory();
 	}
 	

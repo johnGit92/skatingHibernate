@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import model.Competizione;
 import model.Iscrizione;
 
 /**
@@ -15,4 +16,5 @@ public interface IscrizioneDao {
 	Iscrizione retrieve(int numero);
 	void delete(int numero);
 	List<Iscrizione> getAll();
+	List<Competizione> getCompetizioni();
 }
