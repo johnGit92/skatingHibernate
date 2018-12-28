@@ -5,26 +5,27 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public enum Classe {
+public enum Unita {
 
-	LS(1),
-	GS(2);
+	PG(1),
+	GG(2);
 	
 	private final int val;
 	
-	Classe(int val){
+	Unita(int val){
 		this.val=val;
 	}
-	
+
 	public int getVal() {
 		return val;
 	}
 
-	private static final List<Classe> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+	private static final List<Unita> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
 	private static final int SIZE = VALUES.size();
 	private static final Random RANDOM = new Random();
 
-	public static Classe randomClasse()  {
+	public static Unita randomUnita()  {
 		return VALUES.get(RANDOM.nextInt(SIZE));
 	}
+	
 }

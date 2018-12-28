@@ -11,8 +11,8 @@ import model.Iscrizione;
  */
 public interface IscrizioneDao {
 	
-	void create(Iscrizione customer);
-	void update(Iscrizione customer);
+	void create(Iscrizione iscrizione);
+	void update(Iscrizione iscrizione);
 	Iscrizione retrieve(int numero);
 	void delete(int numero);
 	List<Iscrizione> getAll();

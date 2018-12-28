@@ -18,10 +18,10 @@ public class Competizione {
 	private Specialita specialita;
 	private Disciplina disciplina;
 	private Classe classe;
-	private Gruppo gruppo;
+	private Unita gruppo;
 	
 	public Competizione(Categoria categoria, Specialita specialita, Disciplina disciplina, Classe classe,
-			Gruppo gruppo) {
+			Unita gruppo) {
 		super();
 		this.categoria = categoria;
 		this.specialita = specialita;
@@ -79,11 +79,11 @@ public class Competizione {
 	}
 
 	@Enumerated(EnumType.STRING)
-	public Gruppo getGruppo() {
+	public Unita getGruppo() {
 		return gruppo;
 	}
 
-	public void setGruppo(Gruppo gruppo) {
+	public void setGruppo(Unita gruppo) {
 		this.gruppo = gruppo;
 	}
 	

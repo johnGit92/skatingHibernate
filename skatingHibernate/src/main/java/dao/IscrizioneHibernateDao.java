@@ -10,7 +10,7 @@ import model.Categoria;
 import model.Classe;
 import model.Competizione;
 import model.Disciplina;
-import model.Gruppo;
+import model.Unita;
 import model.Iscrizione;
 import model.Specialita;
 
@@ -107,7 +107,7 @@ public class IscrizioneHibernateDao implements IscrizioneDao{
 		List<Competizione> competizioni=new LinkedList<Competizione>();
 		for(Object[] tuple: list) {
 			competizioni.add(new Competizione((Categoria)tuple[0], (Specialita)tuple[3], 
-					(Disciplina)tuple[2], (Classe)tuple[1], (Gruppo)tuple[4]));
+					(Disciplina)tuple[2], (Classe)tuple[1], (Unita)tuple[4]));
 		}
 		
 		return competizioni;

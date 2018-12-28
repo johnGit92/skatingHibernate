@@ -1,27 +1,30 @@
 import java.util.List;
 
-import controller.ControllerCompetizioni;
-import controller.ControllerIscrizioni;
+import controller.Controller;
 import dao.CompetizioneDao;
+import dao.IscrizioneDao;
 import dao.Service;
-import model.Categoria;
-import model.Classe;
 import model.Competizione;
-import model.Disciplina;
-import model.Gruppo;
 import model.Iscrizione;
-import model.Specialita;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		ControllerIscrizioni controller=new ControllerIscrizioni();
-		List<Competizione>tuples=controller.getCompetizioni();
-		tuples=controller.ordinaCompetizioni(tuples);
+		Controller controller=new Controller();
+		
+		List<Iscrizione> list=controller.generaIscritti(500);
+		IscrizioneDao iscrizioneDao=Service.getIscrizioneDao();
+		for(Iscrizione i:list) {
+			iscrizioneDao.create(i);
+		}
+		
+		List<Competizione>competizioni=controller.getCompetizioni();
+		competizioni=controller.ordinaCompetizioni(competizioni);
+		
 		CompetizioneDao compDao=Service.getCompetizioneDao();
-		for(Competizione tuple: tuples) {
-			compDao.create(tuple);
+		for(Competizione competizione: competizioni) {
+			compDao.create(competizione);
 		}
 	}
 

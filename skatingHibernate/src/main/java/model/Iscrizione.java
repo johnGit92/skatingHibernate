@@ -15,7 +15,7 @@ public class Iscrizione {
 	private Categoria categoria;
 	private Specialita specialita;
 	private Disciplina disciplina;
-	private Gruppo gruppo;
+	private Unita gruppo;
 	private int n;
 	private Classe classe;
 	private String ballerini;
@@ -24,7 +24,7 @@ public class Iscrizione {
 		super();
 	}
 
-	public Iscrizione(String asd, int numero, Categoria categoria, Specialita specialita, Disciplina disciplina, Gruppo gruppo,
+	public Iscrizione(String asd, int numero, Categoria categoria, Specialita specialita, Disciplina disciplina, Unita gruppo,
 			int n, Classe classe, String ballerini) {
 		super();
 		this.asd = asd;
@@ -83,11 +83,11 @@ public class Iscrizione {
 	}
 
 	@Enumerated(EnumType.STRING)
-	public Gruppo getGruppo() {
+	public Unita getGruppo() {
 		return gruppo;
 	}
 
-	public void setGruppo(Gruppo gruppo) {
+	public void setGruppo(Unita gruppo) {
 		this.gruppo = gruppo;
 	}
 
