@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import dao.Service;
+import dao.ValutazioneDao;
 import model.Categoria;
 import model.Classe;
 import model.Competizione;
@@ -13,6 +14,7 @@ import model.Disciplina;
 import model.Iscrizione;
 import model.Specialita;
 import model.Unita;
+import model.Valutazione;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -163,6 +165,41 @@ public class Controller {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public void inserisciValutazioniCasualiDaIscritti(List<Iscrizione> list) {
+		
+		ValutazioneDao valutazioneDao=Service.getValutazioneDao();
+		int numero;
+		double tecnico,coreografico,max=6.0,min=5.5;
+		for(Iscrizione i:list) {
+			numero=i.getNumero();
+			tecnico=(Math.random() * ( max - min )) + min;
+			coreografico=(Math.random() * ( max - min )) + min;
+			tecnico=Math.round(tecnico*10.0)/10.0;
+			coreografico=Math.round(coreografico*10.0)/10.0;
+			valutazioneDao.create(new Valutazione(numero, "A", tecnico, coreografico));
+			tecnico=(Math.random() * ( max - min )) + min;
+			coreografico=(Math.random() * ( max - min )) + min;
+			tecnico=Math.round(tecnico*10.0)/10.0;
+			coreografico=Math.round(coreografico*10.0)/10.0;
+			valutazioneDao.create(new Valutazione(numero, "B", tecnico, coreografico));
+			tecnico=(Math.random() * ( max - min )) + min;
+			coreografico=(Math.random() * ( max - min )) + min;
+			tecnico=Math.round(tecnico*10.0)/10.0;
+			coreografico=Math.round(coreografico*10.0)/10.0;
+			valutazioneDao.create(new Valutazione(numero, "C", tecnico, coreografico));
+			tecnico=(Math.random() * ( max - min )) + min;
+			coreografico=(Math.random() * ( max - min )) + min;
+			tecnico=Math.round(tecnico*10.0)/10.0;
+			coreografico=Math.round(coreografico*10.0)/10.0;
+			valutazioneDao.create(new Valutazione(numero, "D", tecnico, coreografico));
+			tecnico=(Math.random() * ( max - min )) + min;
+			coreografico=(Math.random() * ( max - min )) + min;
+			tecnico=Math.round(tecnico*10.0)/10.0;
+			coreografico=Math.round(coreografico*10.0)/10.0;
+			valutazioneDao.create(new Valutazione(numero, "E", tecnico, coreografico));
+		}
 	}
 	
 }

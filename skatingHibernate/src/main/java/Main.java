@@ -29,6 +29,9 @@ public class Main {
 		for(Competizione competizione: competizioni) {
 			compDao.create(competizione);
 		}
+		
+		//genera valutazioni casuali a partire dalle iscrizioni
+		controller.inserisciValutazioniCasualiDaIscritti(iscrizioneDao.getAll());
 	}
 
 }
