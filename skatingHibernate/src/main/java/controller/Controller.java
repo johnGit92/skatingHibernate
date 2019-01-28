@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import dao.GiudiceDao;
 import dao.Service;
 import dao.ValutazioneDao;
 import model.Categoria;
 import model.Classe;
 import model.Competizione;
 import model.Disciplina;
+import model.Giudice;
 import model.Iscrizione;
 import model.Specialita;
 import model.Unita;
@@ -58,9 +60,9 @@ public class Controller {
 								return 1;
 							else {
 								//quinto livello di ordinamento (piccolo/grande gruppo)
-								if(o1.getGruppo().getVal()<o2.getGruppo().getVal())
+								if(o1.getUnita().getVal()<o2.getUnita().getVal())
 									return -1;
-								else if(o1.getGruppo().getVal()>o2.getGruppo().getVal())
+								else if(o1.getUnita().getVal()>o2.getUnita().getVal())
 									return 1;								
 							}
 						}
@@ -110,9 +112,9 @@ public class Controller {
 								return 1;
 							else {
 								//quinto livello di ordinamento (piccolo/grande gruppo)
-								if(o1.getGruppo().getVal()<o2.getGruppo().getVal())
+								if(o1.getUnita().getVal()<o2.getUnita().getVal())
 									return -1;
-								else if(o1.getGruppo().getVal()>o2.getGruppo().getVal())
+								else if(o1.getUnita().getVal()>o2.getUnita().getVal())
 									return 1;								
 							}
 						}
@@ -200,6 +202,17 @@ public class Controller {
 			coreografico=Math.round(coreografico*10.0)/10.0;
 			valutazioneDao.create(new Valutazione(numero, "E", tecnico, coreografico));
 		}
+	}
+
+	public void generaGiudici(int i) {
+		
+		GiudiceDao dao=Service.getGiudiceDao();
+		int count=i,num=0;
+		while(count-->0) {
+			dao.create(new Giudice("G"+num,"nome"+num,"cognome"+num));
+			num++;
+		}
+		
 	}
 	
 }

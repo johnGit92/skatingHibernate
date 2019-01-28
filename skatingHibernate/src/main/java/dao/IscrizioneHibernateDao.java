@@ -94,7 +94,7 @@ public class IscrizioneHibernateDao implements IscrizioneDao{
 	public List<Competizione> getCompetizioni() {
 		Session session=HibernateUtil.getSession();
 		List<Object[]> list;
-		String queryString="select categoria,classe,disciplina,specialita,gruppo from Iscrizione group by categoria,classe,disciplina,specialita,gruppo";
+		String queryString="select categoria,classe,disciplina,specialita,unita from Iscrizione group by categoria,classe,disciplina,specialita,unita";
 		try {
 			session.beginTransaction();
 			Query<Object[]> query=session.createQuery(queryString);

@@ -13,14 +13,14 @@ public class Valutazione {
 
 	private int pk;
 	private int numero;
-	private String id;
+	private String giudice;
 	private double tecnico;
 	private double coreografico;
 	
 	public Valutazione(int numero, String id, double tecnico, double coreografico) {
 		super();
 		this.numero = numero;
-		this.id = id;
+		this.giudice = id;
 		this.tecnico = tecnico;
 		this.coreografico = coreografico;
 	}
@@ -34,11 +34,11 @@ public class Valutazione {
 	}
 
 	public String getId() {
-		return id;
+		return giudice;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.giudice = id;
 	}
 
 	public double getTecnico() {
@@ -70,7 +70,7 @@ public class Valutazione {
 
 	@Override
 	public String toString() {
-		return "Valutazione [numero=" + numero + ", id=" + id + ", tecnico=" + tecnico + ", coreografico="
+		return "Valutazione [numero=" + numero + ", id=" + giudice + ", tecnico=" + tecnico + ", coreografico="
 				+ coreografico + "]";
 	}
 	

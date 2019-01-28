@@ -18,16 +18,16 @@ public class Competizione {
 	private Specialita specialita;
 	private Disciplina disciplina;
 	private Classe classe;
-	private Unita gruppo;
-	
+	private Unita unita;
+
 	public Competizione(Categoria categoria, Specialita specialita, Disciplina disciplina, Classe classe,
-			Unita gruppo) {
+			Unita unita) {
 		super();
 		this.categoria = categoria;
 		this.specialita = specialita;
 		this.disciplina = disciplina;
 		this.classe = classe;
-		this.gruppo = gruppo;
+		this.unita = unita;
 	}
 	
 	@Id
@@ -79,12 +79,12 @@ public class Competizione {
 	}
 
 	@Enumerated(EnumType.STRING)
-	public Unita getGruppo() {
-		return gruppo;
+	public Unita getUnita() {
+		return unita;
 	}
 
-	public void setGruppo(Unita gruppo) {
-		this.gruppo = gruppo;
+	public void setUnita(Unita unita) {
+		this.unita = unita;
 	}
 	
 }
