@@ -93,16 +93,16 @@ public class Controller {
 				else if(o1.getCategoria().getVal()>o2.getCategoria().getVal())
 					return 1;
 				else {
-					//secondo livello di ordinamento (specialità)
-					if(o1.getSpecialita().getVal()<o2.getSpecialita().getVal())
+					//secondo livello di ordinamento (disciplina)
+					if(o1.getDisciplina().getVal()<o2.getDisciplina().getVal())
 						return -1;
-					else if(o1.getSpecialita().getVal()>o2.getSpecialita().getVal())
+					else if(o1.getDisciplina().getVal()>o2.getDisciplina().getVal())
 						return 1;
 					else {
-						//terzo livello di ordinamento (disciplina)
-						if(o1.getDisciplina().getVal()<o2.getDisciplina().getVal())
+						//terzo livello di ordinamento (specialità)
+						if(o1.getSpecialita().getVal()<o2.getSpecialita().getVal())
 							return -1;
-						else if(o1.getDisciplina().getVal()>o2.getDisciplina().getVal())
+						else if(o1.getSpecialita().getVal()>o2.getSpecialita().getVal())
 							return 1;
 						else {
 							//quarto livello di ordinamento (classe)
